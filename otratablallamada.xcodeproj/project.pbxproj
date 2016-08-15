@@ -8,22 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		FD0C50FA1D57D6930097233B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C50F91D57D6930097233B /* AppDelegate.swift */; };
-		FD0C50FC1D57D6930097233B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C50FB1D57D6930097233B /* ViewController.swift */; };
-		FD0C50FF1D57D6930097233B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD0C50FD1D57D6930097233B /* Main.storyboard */; };
 		FD0C51021D57D6930097233B /* otratablallamada.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD0C51001D57D6930097233B /* otratablallamada.xcdatamodeld */; };
 		FD0C51041D57D6930097233B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD0C51031D57D6930097233B /* Assets.xcassets */; };
-		FD0C51071D57D6930097233B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD0C51051D57D6930097233B /* LaunchScreen.storyboard */; };
+		FD0C510F1D57D7230097233B /* TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C510E1D57D7230097233B /* TVC.swift */; };
+		FD0C51111D57E07C0097233B /* VCNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C51101D57E07C0097233B /* VCNew.swift */; };
+		FD0C51131D57E4020097233B /* VCData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C51121D57E4020097233B /* VCData.swift */; };
+		FD0C51181D57F89E0097233B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD0C51161D57F89E0097233B /* Main.storyboard */; };
+		FDC071DD1D611B7C00AD50E1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC071DC1D611B7C00AD50E1 /* Reachability.swift */; };
+		FDC071DF1D611D1B00AD50E1 /* noCover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FDC071DE1D611D1B00AD50E1 /* noCover.jpg */; };
+		FDC071E11D61470900AD50E1 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC071E01D61470900AD50E1 /* Book.swift */; };
+		FDC071E31D614A1700AD50E1 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC071E21D614A1700AD50E1 /* SampleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FD0C50F61D57D6930097233B /* otratablallamada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = otratablallamada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD0C50F91D57D6930097233B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD0C50FB1D57D6930097233B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FD0C50FE1D57D6930097233B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD0C51011D57D6930097233B /* otratablallamada.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = otratablallamada.xcdatamodel; sourceTree = "<group>"; };
 		FD0C51031D57D6930097233B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FD0C51061D57D6930097233B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD0C51081D57D6930097233B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD0C510E1D57D7230097233B /* TVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TVC.swift; path = ../TVC.swift; sourceTree = "<group>"; };
+		FD0C51101D57E07C0097233B /* VCNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCNew.swift; sourceTree = "<group>"; };
+		FD0C51121D57E4020097233B /* VCData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCData.swift; sourceTree = "<group>"; };
+		FD0C51171D57F89E0097233B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FDC071DC1D611B7C00AD50E1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		FDC071DE1D611D1B00AD50E1 /* noCover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noCover.jpg; sourceTree = "<group>"; };
+		FDC071E01D61470900AD50E1 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		FDC071E21D614A1700AD50E1 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,10 +67,15 @@
 			isa = PBXGroup;
 			children = (
 				FD0C50F91D57D6930097233B /* AppDelegate.swift */,
-				FD0C50FB1D57D6930097233B /* ViewController.swift */,
-				FD0C50FD1D57D6930097233B /* Main.storyboard */,
+				FD0C510E1D57D7230097233B /* TVC.swift */,
+				FD0C51101D57E07C0097233B /* VCNew.swift */,
+				FD0C51121D57E4020097233B /* VCData.swift */,
+				FDC071DC1D611B7C00AD50E1 /* Reachability.swift */,
+				FD0C51161D57F89E0097233B /* Main.storyboard */,
+				FDC071E01D61470900AD50E1 /* Book.swift */,
+				FDC071E21D614A1700AD50E1 /* SampleData.swift */,
+				FDC071DE1D611D1B00AD50E1 /* noCover.jpg */,
 				FD0C51031D57D6930097233B /* Assets.xcassets */,
-				FD0C51051D57D6930097233B /* LaunchScreen.storyboard */,
 				FD0C51081D57D6930097233B /* Info.plist */,
 				FD0C51001D57D6930097233B /* otratablallamada.xcdatamodeld */,
 			);
@@ -125,9 +140,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD0C51071D57D6930097233B /* LaunchScreen.storyboard in Resources */,
 				FD0C51041D57D6930097233B /* Assets.xcassets in Resources */,
-				FD0C50FF1D57D6930097233B /* Main.storyboard in Resources */,
+				FD0C51181D57F89E0097233B /* Main.storyboard in Resources */,
+				FDC071DF1D611D1B00AD50E1 /* noCover.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,29 +153,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD0C50FC1D57D6930097233B /* ViewController.swift in Sources */,
 				FD0C51021D57D6930097233B /* otratablallamada.xcdatamodeld in Sources */,
+				FD0C51131D57E4020097233B /* VCData.swift in Sources */,
+				FDC071E11D61470900AD50E1 /* Book.swift in Sources */,
+				FDC071DD1D611B7C00AD50E1 /* Reachability.swift in Sources */,
+				FD0C51111D57E07C0097233B /* VCNew.swift in Sources */,
+				FD0C510F1D57D7230097233B /* TVC.swift in Sources */,
 				FD0C50FA1D57D6930097233B /* AppDelegate.swift in Sources */,
+				FDC071E31D614A1700AD50E1 /* SampleData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FD0C50FD1D57D6930097233B /* Main.storyboard */ = {
+		FD0C51161D57F89E0097233B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD0C50FE1D57D6930097233B /* Base */,
+				FD0C51171D57F89E0097233B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FD0C51051D57D6930097233B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FD0C51061D57D6930097233B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -290,6 +302,7 @@
 				FD0C510D1D57D6930097233B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
