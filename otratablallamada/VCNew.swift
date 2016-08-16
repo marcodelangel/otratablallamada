@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol VCNewDelegate {
+    func didDownload(book: Book)
+}
+
 class VCNew: UIViewController, UITextFieldDelegate {
     
     var book:Book?
@@ -16,6 +20,8 @@ class VCNew: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var titulo: UILabel!
     @IBOutlet weak var autor: UILabel!
     @IBOutlet weak var portada: UIImageView!
+    
+    var bookDelegate : VCNewDelegate?
   
 
     override func viewDidLoad() {
@@ -63,7 +69,7 @@ class VCNew: UIViewController, UITextFieldDelegate {
                     noBookFoundAlert()
                     
                 }else{
-                    do {let json = try! NSJSONSerialization.JSONObjectWithData(dato!, options: NSJSONReadingOptions.MutableLeaves)
+                    do {let json = try NSJSONSerialization.JSONObjectWithData(dato!, options: NSJSONReadingOptions.MutableLeaves)
                         let dicc1 = json as! NSDictionary
                         let dicc2 = dicc1["ISBN:" + isbnCapturado] as! NSDictionary
                         let titulo = dicc2["title"] as! NSString as String
@@ -82,8 +88,11 @@ class VCNew: UIViewController, UITextFieldDelegate {
                             let noCover:UIImage = UIImage(imageLiteral: "noCover.jpg")
                             self.portada.image = noCover
                         }
+                        
+                        book = Book(titulo: titulo, autor: autores, portada: self.portada.image)
+
                     }
-                    catch _{
+                    catch {
                         
                     }
                 }
@@ -129,14 +138,14 @@ class VCNew: UIViewController, UITextFieldDelegate {
         self.presentViewController(alert, animated: true,
                                    completion: nil)
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "saveSegue" {
 
-            book = Book(titulo: titulo.text, autor: autor.text, portada: portada.image)
-        }
-        
+    @IBAction func cancelToBookViewController(segue:UIStoryboardSegue) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
-   
+    
+    @IBAction func saveBookDetail(segue:UIStoryboardSegue) {
+        bookDelegate?.didDownload(book!)
+        dismissViewControllerAnimated(true, completion: nil)
+
+    }
 }

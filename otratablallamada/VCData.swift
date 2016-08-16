@@ -10,13 +10,18 @@ import UIKit
 
 class VCData: UIViewController {
 
-    @IBOutlet weak var titulo: UILabel!
-    @IBOutlet weak var autor: UILabel!
-    @IBOutlet weak var portada: UIImageView!
+    @IBOutlet weak var etiquetaTitulo: UILabel!
+    @IBOutlet weak var etiquetaAutor: UILabel!
+    @IBOutlet weak var contenedorPortada: UIImageView!
+    
+    var book : Book?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        etiquetaAutor.text = book!.autor
+        etiquetaTitulo.text = book!.titulo
+        contenedorPortada.image = book!.portada
     }
 
     override func didReceiveMemoryWarning() {

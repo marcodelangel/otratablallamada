@@ -147,12 +147,12 @@
                     <navigationItem key="navigationItem" id="zjO-8d-bzI">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fts-FE-5tV">
                             <connections>
-                                <segue destination="d1f-MY-sRw" kind="unwind" unwindAction="cancelToPlayersViewController:" id="Tmc-ds-hP8"/>
+                                <action selector="cancelToBookViewController:" destination="ccI-fa-870" id="kpF-Zk-o4e"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Xq3-xL-r09">
                             <connections>
-                                <segue destination="d1f-MY-sRw" kind="unwind" identifier="saveSegue" unwindAction="savePlayerDetail:" id="s1R-A7-I6f"/>
+                                <action selector="saveBookDetail:" destination="ccI-fa-870" id="Sui-an-Bkp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -164,7 +164,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="InD-fN-YFA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="d1f-MY-sRw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1297.5" y="-357"/>
         </scene>
@@ -197,7 +196,7 @@
                     <navigationItem key="navigationItem" title="Libros" id="CY0-4V-ps1">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="G0g-oa-zK7">
                             <connections>
-                                <segue destination="WPH-ZA-0ui" kind="presentation" id="39Q-kW-tdF"/>
+                                <segue destination="WPH-ZA-0ui" kind="presentation" identifier="addBookSegue" id="39Q-kW-tdF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -222,10 +221,10 @@
             </objects>
             <point key="canvasLocation" x="-174" y="346"/>
         </scene>
-        <!--detail-->
+        <!--Data-->
         <scene sceneID="WEW-jW-lqu">
             <objects>
-                <viewController storyboardIdentifier="vcdata" title="detail" id="7UC-wd-879" customClass="VCData" customModule="otratablallamada" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vcdata" id="7UC-wd-879" customClass="VCData" customModule="otratablallamada" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jGq-bf-i5g"/>
                         <viewControllerLayoutGuide type="bottom" id="Gq3-km-DbB"/>
@@ -348,7 +347,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Y6s-zB-46B"/>
                     <connections>
-                        <outlet property="titulo" destination="NX1-Lb-ksd" id="aYm-oA-iCa"/>
+                        <outlet property="contenedorPortada" destination="fRr-iK-nhW" id="YqN-vv-9aT"/>
+                        <outlet property="etiquetaAutor" destination="Ut0-Ff-NhI" id="EyP-in-Jkq"/>
+                        <outlet property="etiquetaTitulo" destination="NX1-Lb-ksd" id="eOD-jv-HOZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdf-54-5EM" userLabel="First Responder" sceneMemberID="firstResponder"/>

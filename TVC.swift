@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TVC: UITableViewController {
+class TVC: UITableViewController, VCNewDelegate {
     
     var booksList:[Book] = booksData
     
@@ -48,37 +48,25 @@ class TVC: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "showBook"{
-        
-            if let dataViewController = segue.destinationViewController as? VCData{
-                let ip = self.tableView.indexPathForSelectedRow?.row
-                
-                let selectedBook = booksList[ip!]
-                
-                print(selectedBook.autor)
-                
-                dataViewController.autor.text = selectedBook.autor
-                
-            }
-
-            }
-            
-    }
-
-    @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue) {
+        if segue.identifier == "showBook",
+            let dataViewController = segue.destinationViewController as? VCData,
+            let ip = self.tableView.indexPathForSelectedRow?.row {
+            let selectedBook = booksList[ip]
+            dataViewController.book = selectedBook
+        }
+    
+        if segue.identifier == "addBookSegue",
+            let newBookNavViewController =  segue.destinationViewController as? UINavigationController,
+            let newBookViewController = newBookNavViewController.topViewController as? VCNew {
+            newBookViewController.bookDelegate = self
+        }
+    
     }
     
-    @IBAction func savePlayerDetail(segue:UIStoryboardSegue) {
-        if let bookDetailVC = segue.sourceViewController as? VCNew {
-            
-            //add the new player to the players array
-            if let book = bookDetailVC.book {
-                booksList.append(book)
-                
-                //update the tableView
-                let indexPath = NSIndexPath(forRow: booksList.count-1, inSection: 0)
-                tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            }
-        }
+    func didDownload(book: Book) {
+            booksList.append(book)
+            let indexPath = NSIndexPath(forRow: booksList.count-1, inSection: 0)
+            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        
     }
 }
