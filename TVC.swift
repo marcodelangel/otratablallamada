@@ -7,14 +7,37 @@
 //
 
 import UIKit
+import CoreData
 
 class TVC: UITableViewController, VCNewDelegate {
     
     var booksList:[Book] = booksData
+    var context : NSManagedObjectContext? =  nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
+        //Recuperación de datos
+        
+        let bookSaved = NSEntityDescription.entityForName("BookCD",
+                                                          inManagedObjectContext: self.context!)
+        let bookSavedRequest = bookSaved?.managedObjectModel.fetchRequestTemplateForName("RequestBook")
+        do{
+            let bookSavedEntity = try self.context?.executeFetchRequest(bookSavedRequest!)
+            for bookSavedData in bookSavedEntity!{
+                let titulo = bookSavedData.valueForKey("titulo") as! String
+                let autor = bookSavedData.valueForKey("autor") as! String
+                let portada = bookSavedData.valueForKey("portada") as! NSData
+                let portadaImagen : UIImage = UIImage(data: portada)!
+                booksList.append(Book(titulo: titulo, autor: autor, portada: portadaImagen))
+            }
+        }
+        catch{
+            
+        }
+        
         self.title = "Libros"
     
     }

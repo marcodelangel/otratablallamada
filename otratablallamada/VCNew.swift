@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol VCNewDelegate {
     func didDownload(book: Book)
@@ -15,6 +16,7 @@ protocol VCNewDelegate {
 class VCNew: UIViewController, UITextFieldDelegate {
     
     var book:Book?
+    var context : NSManagedObjectContext? =  nil
     
     @IBOutlet weak var isbnEntry: UITextField!
     @IBOutlet weak var titulo: UILabel!
@@ -26,6 +28,9 @@ class VCNew: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        
         isbnEntry.delegate = self
         isbnEntry.becomeFirstResponder()
         
@@ -52,6 +57,11 @@ class VCNew: UIViewController, UITextFieldDelegate {
             
             var isbnCapturado = isbnEntry.text!
             
+            // Creación de nueva entidad
+            let newBookEntity = NSEntityDescription.insertNewObjectForEntityForName("BookCD",
+                                                                                    inManagedObjectContext: self.context!)
+            
+            // Revisión de ISBN
             if isbnCapturado.characters.count < 12 || isbnCapturado == "Ingresa el ISBN" || isbnCapturado.characters.count > 13{
                 incorrectISBNCaptureAlert()
             } else {
@@ -73,20 +83,41 @@ class VCNew: UIViewController, UITextFieldDelegate {
                         let dicc1 = json as! NSDictionary
                         let dicc2 = dicc1["ISBN:" + isbnCapturado] as! NSDictionary
                         let titulo = dicc2["title"] as! NSString as String
+                        
+                        //titulo
                         self.titulo.text = titulo
+                        newBookEntity.setValue(titulo, forKey: "titulo")
+                        
                         let array =  dicc2["authors"] as! NSMutableArray
                         let dicc3 = array.objectAtIndex(0) as! NSDictionary
                         let autores = dicc3["name"] as! NSString as String
+                        
+                        //autor
                         self.autor.text = autores
+                        newBookEntity.setValue(autores, forKey: "autor")
+                        
                         if let dictionaryImages = dicc2["cover"] as! NSDictionary? {
                             let urlsImage = dictionaryImages["large"] as! NSString as String
                             let urlImage = NSURL(string: urlsImage)
                             let datosImage:NSData? = NSData(contentsOfURL: urlImage!)
                             let imageCover:UIImage = UIImage(data: datosImage!)!
+                            
+                            //portada
                             self.portada.image = imageCover
+                            newBookEntity.setValue(datosImage, forKey: "portada")
+                            
                         }else{
                             let noCover:UIImage = UIImage(imageLiteral: "noCover.jpg")
                             self.portada.image = noCover
+                            newBookEntity.setValue(UIImagePNGRepresentation(noCover), forKey: "portada")
+                        }
+                        
+                        //Guardar el contexto
+                        do {
+                            try self.context?.save()
+                        }
+                        catch{
+                            
                         }
                         
                         book = Book(titulo: titulo, autor: autores, portada: self.portada.image)
